@@ -321,7 +321,8 @@ export function drawTitle(ctx, S) {
     hexPath(ctx, x + 22, y + 24, 12); ctx.fillStyle = f.color; ctx.fill();
     txt(ctx, f.name.toUpperCase(), x + 42, y + 30, 17, f.color, 'left', true);
     txt(ctx, f.epithet, x + 12, y + 50, 10.5, '#b9a8e8');
-    f.powers.forEach((pw, j) => txt(ctx, `${j + 1}. ${pw.name} — ${pw.desc.slice(0, 30)}…`, x + 12, y + 70 + j * 15, 10.5, j === 0 || S.shotMode ? '#ffe9b8' : '#9a8ac8'));
+    txt(ctx, f.desc.slice(0, 38) + '…', x + 12, y + 66, 10, '#9a8ac8');
+    f.powers.forEach((pw, j) => txt(ctx, `${j + 1}. ${pw.name} · ${pw.dmg} dmg${pw.energy ? ' · ' + pw.energy + ' NRG' : ''}`, x + 12, y + 86 + j * 13, 10.5, '#ffe9b8'));
     if (S.selFruit === i) txt(ctx, '▶ SELECTED', x + w - 12, y + 24, 11, f.color, 'right', true);
   });
   // Bestiary, right column.
