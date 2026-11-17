@@ -63,6 +63,7 @@ export function setupShotScene(S, api) {
       api.step(1 / 60);
     }
     S.script = null;
+    S.surgeT = 4.2; // a 25-chain fired moments ago — the surge is live in this frame
     for (const e of S.enemies) e.flash = 0; // no frozen hit-flash whitening the boss
     burst(S, 890, 310, '#ffd83d', 10, 200, 0.6, 4);
     return true;

@@ -189,7 +189,7 @@ export function firePower(S, idx, aim) {
   if (!pw || idx >= unlockedPowers(S) || p.cds[idx] > 0 || p.energy < pw.energy || S.mode !== 'play') return false;
   p.energy -= pw.energy; p.cds[idx] = pw.cd;
   const a = Math.atan2(aim.y - p.y, aim.x - p.x);
-  const dmg = pw.dmg * S.dmgMult;
+  const dmg = pw.dmg * S.dmgMult * (S.surgeT > 0 ? 1.5 : 1);
   if (idx === 0) sfx.shoot(); else sfx.power();
   switch (pw.kind) {
     case 'bolt': spawnProj(S, p.x + Math.cos(a) * 20, p.y + Math.sin(a) * 20, a, pw.speed, dmg, 'bolt', fruit.color); break;
@@ -267,6 +267,13 @@ function killEnemy(S, e) {
   S.kills++;
   // Combo & score.
   S.combo++; S.comboTimer = COMBO_WINDOW * mutMult(S, 'combocharm', (COMBO_WINDOW + 1.4) / COMBO_WINDOW);
+  // Hex Surge: every 25-chain, the fruit overloads — +50% damage for 6s.
+  if (S.combo % 25 === 0 && !(S.surgeT > 0)) {
+    S.surgeT = 6;
+    pushBanner(S, 'HEX SURGE!', '+50% power damage for 6 seconds', S.fruit.color);
+    burst(S, S.player.x, S.player.y, S.fruit.color, 26, 260, 0.7, 4);
+    sfx.unlock();
+  }
   S.bestCombo = Math.max(S.bestCombo, S.combo);
   S.comboMult = (1 + Math.min(S.combo, 60) * 0.035) * mutMult(S, 'combocharm', 1.25);
   const gained = Math.round(e.score * S.comboMult * S.diff.scoreMult);
@@ -458,6 +465,7 @@ export function updateFx(S, dt) {
   for (const b of S.banners) b.t -= dt;
   S.banners = S.banners.filter((b) => b.t > 0);
   if (S.comboTimer > 0) { S.comboTimer -= dt; if (S.comboTimer <= 0) { S.combo = 0; S.comboMult = 1; } }
+  S.surgeT = Math.max(0, (S.surgeT || 0) - dt);
   S.shake = Math.max(0, S.shake - dt * 26);
 }
 

@@ -151,6 +151,10 @@ function drawPlayer(ctx, S) {
   // Hexfruit badge overhead.
   hexPath(ctx, fx * 2, -p.r - 12 + Math.sin(S.time * 3) * 2, 8);
   ctx.fillStyle = f.color; ctx.fill(); ctx.strokeStyle = '#ffe9b8'; ctx.lineWidth = 1.2; ctx.stroke();
+  if (S.surgeT > 0) { // Hex Surge aura — the fruit is visibly overloading
+    ctx.strokeStyle = f.color; ctx.globalAlpha = 0.55 + Math.sin(S.time * 10) * 0.25; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.arc(0, 0, p.r + 10 + Math.sin(S.time * 6) * 2, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1;
+  }
   if (p.hurtT > 0.2) { ctx.fillStyle = 'rgba(255,60,80,0.35)'; ctx.beginPath(); ctx.arc(0, 0, p.r + 5, 0, Math.PI * 2); ctx.fill(); }
   ctx.restore();
   if (p.orbitT > 0) {
@@ -277,6 +281,10 @@ function drawHudPanels(ctx, S) {
     txt(ctx, `${S.combo} chain`, W - 30, 424, 14, '#ffe9b8', 'right');
     bar(ctx, W - 190, 432, 160, 6, S.comboTimer / (COMBO_LEN(S)), '#ffd24d');
   }
+  if (S.surgeT > 0) {
+    txt(ctx, '⚡ HEX SURGE — DMG +50%', W - 30, 462, 17, S.fruit.color, 'right', true);
+    bar(ctx, W - 190, 470, 160, 6, S.surgeT / 6, S.fruit.color);
+  }
   // Boss HP, bottom-centre.
   if (S.bossRef && !S.bossRef.dead) {
     panel(ctx, 390, H - 52, 500, 40);
@@ -348,7 +356,7 @@ export function drawTitle(ctx, S) {
     'FIRE powers: LMB = power 1 · RMB = power 2 · SPACE = power 3 · E = power 4 (or keys 1–4).',
     'Kills earn MASTERY XP — powers 2, 3 and 4 unlock at 50 / 140 / 300 XP, mid-run.',
     'Clear 3 waves + the isle boss, then DRAFT 1 of 3 mutations before sailing on.',
-    'Chain kills to grow the COMBO multiplier; grab husk coins from the fallen.',
+    'Chain kills for the COMBO multiplier — every 25-chain fires a HEX SURGE (+50% dmg, 6s).',
     'WIN: fell Captain Husk on Isle 7.   LOSE: your HP reaches 0.',
   ];
   how.forEach((s, i) => txt(ctx, s, 44, 472 + i * 22, 13, '#ffe9b8'));

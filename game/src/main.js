@@ -28,7 +28,7 @@ const S = {
   parts: [], floats: [], novas: [], beams: [], chains: [], pickups: [], banners: [],
   spawnQueue: [], spawnTimer: 0, bossActive: false, bossRef: null,
   mutations: [], draftOffer: [], waveHitTaken: false,
-  shake: 0, dmgMult: 1, secondWindUsed: false, dead: false, victory: false,
+  shake: 0, dmgMult: 1, surgeT: 0, secondWindUsed: false, dead: false, victory: false,
   endStats: [], rng: makeRng(BASE_SEED),
 };
 try { S.best = parseInt(localStorage.getItem('hexfruit-best') || '0', 10) || 0; } catch { /* private mode */ }
@@ -43,7 +43,7 @@ function startRun() {
   S.shotsFired = 0; S.shotsHit = 0; S.timePlayed = 0;
   S.player = newPlayer(); S.enemies = []; S.projs = []; S.eprojs = []; S.lobs = [];
   S.parts = []; S.floats = []; S.novas = []; S.beams = []; S.chains = []; S.pickups = []; S.banners = [];
-  S.mutations = []; S.dmgMult = 1; S.secondWindUsed = false; S.dead = false; S.victory = false;
+  S.mutations = []; S.dmgMult = 1; S.surgeT = 0; S.secondWindUsed = false; S.dead = false; S.victory = false;
   S.isle = 0; S.wave = 0; S.isleName = ISLES[0].name; S.rng = makeRng(BASE_SEED ^ (S.selFruit * 977 + S.selDiff * 131));
   buildWaveQueue(S);
   S.mode = 'play';
