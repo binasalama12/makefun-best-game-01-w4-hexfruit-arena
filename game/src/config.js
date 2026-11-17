@@ -83,15 +83,15 @@ export const FRUITS = [
 
 // 8 corsair types, each with a distinct behaviour (AI in entities.js).
 export const CORSAIRS = {
-  cutler:   { name: 'Husk Cutler',   hp: 46,  speed: 96,  r: 17, dmg: 12, score: 100, coins: 2, xp: 9,  color: '#c9b18a', desc: 'Chases you down and slashes in melee.' },
-  spitter:  { name: 'Husk Spitter',  hp: 38,  speed: 62,  r: 16, dmg: 10, score: 130, coins: 3, xp: 11, color: '#9fd06a', desc: 'Keeps its distance and spits hex-globs.' },
-  dasher:   { name: 'Husk Dasher',   hp: 40,  speed: 84,  r: 15, dmg: 14, score: 150, coins: 3, xp: 12, color: '#e07a4a', desc: 'Circles, winds up, then lunges in a line.' },
-  splitter: { name: 'Husk Splitter', hp: 64,  speed: 58,  r: 20, dmg: 10, score: 160, coins: 3, xp: 13, color: '#7ac9c0', desc: 'Splits into two Husk Mites when it falls.' },
-  mite:     { name: 'Husk Mite',     hp: 18,  speed: 128, r: 10, dmg: 7,  score: 50,  coins: 1, xp: 5,  color: '#a8e0d8', desc: 'A Splitter’s offspring — small, fast, furious.' },
-  shielder: { name: 'Husk Shielder', hp: 96,  speed: 44,  r: 19, dmg: 12, score: 200, coins: 4, xp: 16, color: '#8a97b8', desc: 'A hex-shield blocks shots from the front.' },
-  bomber:   { name: 'Husk Bomber',   hp: 34,  speed: 118, r: 16, dmg: 22, score: 170, coins: 3, xp: 12, color: '#e04a5a', desc: 'Rushes you and bursts in a hex explosion.' },
-  sniper:   { name: 'Husk Sniper',   hp: 36,  speed: 50,  r: 15, dmg: 18, score: 220, coins: 5, xp: 17, color: '#c07ae0', desc: 'Telegraphs a long charged shot, then fires.' },
-  brute:    { name: 'Husk Brute',    hp: 210, speed: 38,  r: 27, dmg: 20, score: 400, coins: 8, xp: 26, color: '#97e04a', desc: 'Slow, enormous, slams the ground in a ring.' },
+  cutler:   { name: 'Husk Cutler',   hp: 46,  speed: 96,  r: 17, dmg: 12, score: 80, coins: 2, xp: 9,  color: '#c9b18a', desc: 'Chases you down and slashes in melee.' },
+  spitter:  { name: 'Husk Spitter',  hp: 38,  speed: 62,  r: 16, dmg: 10, score: 100, coins: 3, xp: 11, color: '#9fd06a', desc: 'Keeps its distance and spits hex-globs.' },
+  dasher:   { name: 'Husk Dasher',   hp: 40,  speed: 84,  r: 15, dmg: 14, score: 120, coins: 3, xp: 12, color: '#e07a4a', desc: 'Circles, winds up, then lunges in a line.' },
+  splitter: { name: 'Husk Splitter', hp: 64,  speed: 58,  r: 20, dmg: 10, score: 130, coins: 3, xp: 13, color: '#7ac9c0', desc: 'Splits into two Husk Mites when it falls.' },
+  mite:     { name: 'Husk Mite',     hp: 18,  speed: 128, r: 10, dmg: 7,  score: 40,  coins: 1, xp: 5,  color: '#a8e0d8', desc: 'A Splitter’s offspring — small, fast, furious.' },
+  shielder: { name: 'Husk Shielder', hp: 96,  speed: 44,  r: 19, dmg: 12, score: 160, coins: 4, xp: 16, color: '#8a97b8', desc: 'A hex-shield blocks shots from the front.' },
+  bomber:   { name: 'Husk Bomber',   hp: 34,  speed: 118, r: 16, dmg: 22, score: 140, coins: 3, xp: 12, color: '#e04a5a', desc: 'Rushes you and bursts in a hex explosion.' },
+  sniper:   { name: 'Husk Sniper',   hp: 36,  speed: 50,  r: 15, dmg: 18, score: 180, coins: 5, xp: 17, color: '#c07ae0', desc: 'Telegraphs a long charged shot, then fires.' },
+  brute:    { name: 'Husk Brute',    hp: 210, speed: 38,  r: 27, dmg: 20, score: 320, coins: 8, xp: 26, color: '#97e04a', desc: 'Slow, enormous, slams the ground in a ring.' },
 };
 export const BESTIARY = ['cutler', 'spitter', 'dasher', 'splitter', 'shielder', 'bomber', 'sniper', 'brute'];
 
@@ -146,9 +146,9 @@ export const DIFFICULTIES = [
 ];
 
 export const SCORE = {
-  waveClear: 250,       // × wave number
-  isleClear: 1500,      // × isle number
-  bossKill: 4000,
-  captainKill: 12000,
-  noHitWave: 800,
+  waveClear: 200,       // × wave number
+  isleClear: 400,       // × isle number
+  bossKill: 2500,
+  captainKill: 8000,
+  noHitWave: 500,
 };

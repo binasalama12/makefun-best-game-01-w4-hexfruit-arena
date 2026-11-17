@@ -51,7 +51,7 @@ export function makeEnemy(S, type, x, y, bossDef = null) {
     hp: (bossDef ? bossDef.hp : c.hp) * (bossDef ? S.diff.hp : hpScale),
     maxHp: (bossDef ? bossDef.hp : c.hp) * (bossDef ? S.diff.hp : hpScale),
     speed: c.speed * S.diff.speed * range(S.rng, 0.9, 1.1),
-    dmg: c.dmg, score: bossDef ? SCORE.bossKill : c.score, coins: bossDef ? 40 : c.coins, xp: bossDef ? 120 : c.xp,
+    dmg: c.dmg, score: bossDef ? 400 : c.score, coins: bossDef ? 40 : c.coins, xp: bossDef ? 120 : c.xp,
     color: c.color, boss: !!bossDef, t: range(S.rng, 0, 6), state: 'chase', stateT: 0,
     shootT: range(S.rng, 1.2, 2.6), hitT: 0, touchT: 0, snareT: 0, flash: 0, slamT: 2.2,
     aimX: 0, aimY: 0, dead: false,
@@ -275,7 +275,7 @@ function killEnemy(S, e) {
     sfx.unlock();
   }
   S.bestCombo = Math.max(S.bestCombo, S.combo);
-  S.comboMult = (1 + Math.min(S.combo, 60) * 0.035) * mutMult(S, 'combocharm', 1.25);
+  S.comboMult = (1 + Math.min(S.combo, 40) * 0.012) * mutMult(S, 'combocharm', 1.25);
   const gained = Math.round(e.score * S.comboMult * S.diff.scoreMult);
   S.score += gained;
   floatText(S, e.x, e.y + 6, '+' + gained.toLocaleString('en-US'), '#ffd24d', 15);

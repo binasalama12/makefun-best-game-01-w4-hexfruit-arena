@@ -40,7 +40,7 @@ export function setupShotScene(S, api) {
     S.dmgMult = 1.25;
     S.score = 58430; S.coins = 212; S.coinsCollected = 340; S.kills = 218; S.bossesKilled = 6;
     S.combo = 23; S.comboTimer = 2.1; S.bestCombo = 38;
-    S.comboMult = (1 + 23 * 0.035) * 1.25;
+    S.comboMult = (1 + 23 * 0.012) * 1.25;
     S.enemies = []; S.spawnQueue = []; S.projs = []; S.eprojs = [];
     const boss = makeEnemy(S, BOSSES[6].type, 890, 310, BOSSES[6]);
     boss.hp = boss.maxHp * 0.38; S.enemies.push(boss); S.bossRef = boss; S.bossActive = true;
