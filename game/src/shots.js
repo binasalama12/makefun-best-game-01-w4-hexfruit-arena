@@ -51,7 +51,9 @@ export function setupShotScene(S, api) {
     for (const [t, x, y] of escorts) S.enemies.push(makeEnemy(S, t, x, y));
     S.spawnQueue = [{ type: 'cutler' }, { type: 'cutler' }, { type: 'spitter' }, { type: 'bomber' }];
     S.script = { mv: { x: 0.25, y: -0.12 }, aim: { x: 890, y: 310 } };
+    S.banners.length = 0; // drop the startRun isle banner — this frame has one story
     pushBanner(S, 'CAPTAIN HUSK — FINAL BOSS', 'Fell him and the crossing is yours', '#ff8a9a');
+    const msg = document.getElementById('msg'); if (msg) msg.textContent = '';
     for (let i = 0; i < 110; i++) {
       if (i % 9 === 0) api.fire(0);
       if (i === 30) api.fire(1);
@@ -61,6 +63,7 @@ export function setupShotScene(S, api) {
       api.step(1 / 60);
     }
     S.script = null;
+    for (const e of S.enemies) e.flash = 0; // no frozen hit-flash whitening the boss
     burst(S, 890, 310, '#ffd83d', 10, 200, 0.6, 4);
     return true;
   }
@@ -74,6 +77,7 @@ export function setupShotScene(S, api) {
     S.mutations = ['swiftwake', 'coinmagnet'];
     S.draftOffer = [byId('emberheart'), byId('thornskin'), byId('secondwind')];
     S.mode = 'draft';
+    const msg2 = document.getElementById('msg'); if (msg2) msg2.textContent = '';
     for (let i = 0; i < 12; i++) api.step(1 / 60);
     return true;
   }
