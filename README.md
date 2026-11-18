@@ -3,6 +3,10 @@
 
 **HEXFRUIT ARENA — eat a hexfruit, master its 4 powers: 6 fruits, 7 isles, 8 corsairs, boss Captain Husk**
 
+[![make.fun · best-game-01](https://make.fun/badge/best-game-01.svg)](https://make.fun/bounty/best-game-01?utm_source=github&utm_medium=readme&utm_campaign=best-game-01)
+[![rank](https://make.fun/badge/best-game-01/binasalama12/makefun-best-game-01-w4-hexfruit-arena/rank.svg)](https://make.fun/bounty/best-game-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-game-01)
+[![reward](https://make.fun/badge/best-game-01/binasalama12/makefun-best-game-01-w4-hexfruit-arena/reward.svg)](https://make.fun/bounty/best-game-01?utm_source=github&utm_medium=readme&utm_campaign=best-game-01)
+
 ![Boss climax — Captain Husk on Huskhome, full HUD](https://raw.githubusercontent.com/binasalama12/makefun-best-game-01-w4-hexfruit-arena/main/screenshots/1-boss.jpg)
 ![Mutation draft between isles](https://raw.githubusercontent.com/binasalama12/makefun-best-game-01-w4-hexfruit-arena/main/screenshots/2-draft.jpg)
 ![Title — how-to, hexfruit cards, corsair bestiary, difficulties](https://raw.githubusercontent.com/binasalama12/makefun-best-game-01-w4-hexfruit-arena/main/screenshots/3-title.jpg)
